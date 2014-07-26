@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClientUtils.FsharpLib;
 using DataContracts;
+using System.Reflection;
 
 namespace CSharpToFSharp
 {
@@ -37,8 +38,23 @@ namespace CSharpToFSharp
             {
                 Console.Write(item + "\t");
             }
+            Console.WriteLine("\n");
 
-            Console.WriteLine();
+            HereICome foo = ReadyOrNot.ChickenBone;
+            Console.WriteLine("Now let's try to consume an F# type:");
+            Console.WriteLine("Type: {0} Name: {1} Age: {2}\n", foo.GetType().Name, foo.Name, foo.Age);
+
+            Console.WriteLine("Now let's try to instanciate an F# type:");
+            HereICome bar = new HereICome("Fred", 80);
+            Console.WriteLine("Name: {0} Age: {1}\n", bar.Name, bar.Age);
+
+            Console.WriteLine("Reflection test:");
+            foreach (PropertyInfo p in typeof(HereICome).GetProperties())
+            {
+                Console.Write("{0}: {1}\t", p.Name, p.GetValue(bar, null));
+            }
+
+            var derp = FSharpLib.LocationCodeParser.parseLatLng("=30, 40", new LocationFilterMessage());
             Console.ReadLine();
         }
     }

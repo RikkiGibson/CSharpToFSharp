@@ -51,3 +51,7 @@ module Parser =
                                 CaughtInALandSlide = 20.0,
                                 NoEscapeFromReality = listOfString)
         message
+        
+type HereICome = { Name:string; Age:int; }
+module ReadyOrNot =
+    let ChickenBone:HereICome = { Name = "Joe"; Age = 30; }

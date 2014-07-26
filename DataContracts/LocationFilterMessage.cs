@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace OdotTad.Tocs.Shared.DataContracts.Location
+namespace DataContracts
 {
     /// <summary>
     /// Represents the parameters of a location search.
